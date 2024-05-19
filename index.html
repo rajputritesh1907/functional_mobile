@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="container">
+            <div class="box">
+                <div id="time"></div>
+                <div id="date"></div>
+                <div class="battery">
+                    <div id="battery_border">
+                        <div class="inner_battery">
+                            •⩊•
+                        </div>
+                    </div>
+                    <div class="percentage_battery">
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="rhs_time">
+                    <p style="margin-left: 10%; margin-top: 5%; font-size: 2vh;">Today</p>
+                    <div class="rhs_time_box">
+                        <div id="hours">
+
+                        </div>H
+                        <div id="minutes">
+
+                        </div>M
+                        <div id="seconds">
+
+                        </div>S
+                    </div>
+                </div>
+                <div class="rhs_time">
+                    <div class="circle">
+                        <div class="yellow"></div>
+                        <div class="gray"></div>
+                    </div>
+                    <div class="circle2">
+                        45%
+                    </div>
+                    <div class="this_year">
+                        <h3>this year</h3>
+                        <p id="days"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="box">
+                <div class="social">
+                    <div class="twitter">
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                    <div class="twitter">
+                        <i class="fa-brands fa-chrome"></i>
+                    </div>
+                </div>
+                <div class="toggle">
+                    <label class="switch" id="hlo" >
+                        <input type="checkbox" id="checkbox">
+                        <span class="slider" for="checkbox"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="box">
+                <div class="watch">
+                    <ul>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                        <li class="numbers">
+                            <sapn>|</sapn>
+                        </li>
+                    </ul>
+                    <div class="circle1"></div>
+                    <div class="hour" id="hour"></div>
+                    <div class="minute" id="minute"></div>
+                    <div class="second" id="second"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="box">
+                <div class="tea"><strong id="add" onclick="increment()">+</strong><i
+                        class="fa-solid fa-whiskey-glass"><strong id="sub" onclick="decrement()">-</strong></i></div>
+                <div class="add_tea">
+                    <H4 class="add_tea1">0/8</H4>
+                </div>
+            </div>
+            <div class="box">
+                <div class="cal">
+                    <div class="calendar"><i class="fa-solid fa-calendar"></i></div>
+                    <div class="notes"><i class="fa-regular fa-note-sticky"></i></div>
+                </div>
+                <div class="cal">
+                    <div class="facebook"><i class="fa-brands fa-facebook-f"></i></div>
+                    <div class="facebook">
+                        <div class="line">LINE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="last_box">
+                <div class="facebook">
+                    <div class="phone">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                </div>
+                <div class="facebook">
+                    <div class="phone">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="script.js"></script>
+<script>
+    setInterval(() => {
+            d = new Date();
+            hr = d.getHours();
+            min = d.getMinutes();
+            sec = d.getSeconds();
+            hr_rotation = 30 * hr + min / 2;
+            min_rotation = 6 * min;
+            sec_rotation = 6 * sec;
+
+            hour.style.transform = `rotate(${hr_rotation}deg)`;
+            minute.style.transform = `rotate(${min_rotation}deg)`;
+            second.style.transform = `rotate(${sec_rotation}deg)`;
+        }, 1000);
+</script>
+</body>
+</html>

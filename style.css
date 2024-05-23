@@ -220,6 +220,7 @@ body {
 .this_year {
     position: absolute;
     left: 30vh;
+    font-size: clamp(.5rem, 1.5vh, 1rem);
 }
 
 .social {

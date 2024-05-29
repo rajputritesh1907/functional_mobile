@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div id="main">
         <div class="container">
@@ -57,14 +60,14 @@
             <div class="box">
                 <div class="social">
                     <div class="twitter">
-                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
                     <div class="twitter">
                         <i class="fa-brands fa-chrome"></i>
                     </div>
                 </div>
                 <div class="toggle">
-                    <label class="switch" id="hlo" >
+                    <label class="switch" id="hlo">
                         <input type="checkbox" id="checkbox">
                         <span class="slider" for="checkbox"></span>
                     </label>
@@ -128,12 +131,12 @@
             <div class="box">
                 <div class="cal">
                     <div class="calendar"><i class="fa-solid fa-calendar"></i></div>
-                    <div class="notes"><i class="fa-regular fa-note-sticky"></i></div>
+                    <div class="notes"><i class="fa-solid fa-calculator" onclick="cals()"></i></div>
                 </div>
                 <div class="cal">
                     <div class="facebook"><i class="fa-brands fa-facebook-f"></i></div>
-                    <div class="facebook">
-                        <div class="line">LINE</div>
+                    <div class="facebook" onclick="music()">
+                        <i class="fa-solid fa-music"></i>
                     </div>
                 </div>
             </div>
@@ -146,16 +149,103 @@
                     </div>
                 </div>
                 <div class="facebook">
-                    <div class="phone">
-                        <i class="fa-solid fa-camera"></i>
+                    <div class="phone" >
+                        <i class="fa-solid fa-camera" onclick="cam()"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<script src="script.js"></script>
-<script>
-    setInterval(() => {
+    <div class="cals">
+        <div class="back">
+            <i class="fa-solid fa-chevron-left" onclick="back()"></i>
+        </div>
+        <div class="cals_cover">
+            <div class="cals_display">
+                <input type="text" placeholder="0" id="inputBox">
+            </div>
+            <div class="cals_butt">
+                <div class="num operator">AC</div>
+                <div class="num del">⌫</div>
+                <div class="num operator">%</div>
+                <div class="num operator">/</div>
+                <div class="num butt">7</div>
+                <div class="num butt">8</div>
+                <div class="num butt">9</div>
+                <div class="num operator">*</div>
+                <div class="num butt">4</div>
+                <div class="num butt">5</div>
+                <div class="num butt">6</div>
+                <div class="num operator">-</div>
+                <div class="num butt">1</div>
+                <div class="num butt">2</div>
+                <div class="num butt">3</div>
+                <div class="num operator">+</div>
+                <div class="num butt">00</div>
+                <div class="num butt">0</div>
+                <div class="num butt">.</div>
+                <div class="num operator">=</div>
+            </div>
+        </div>
+    </div>
+    <div class="cam">
+        <div class="back">
+            <i class="fa-solid fa-chevron-left" onclick="back1()"></i>
+            <select class="cameraSelect"></select>
+        </div>
+        <div class="camera_middle">
+            <video  class="vid"  autoplay></video>
+        </div>
+        <div class="camera_bottem">
+            <div class="camera_rotate">
+                <i class="fa-solid fa-camera-rotate"></i>
+            </div>
+            <div class="camera_click">
+                <div class="camera_click2" id="startButton"></div>
+            </div>
+        </div>
+    </div>
+    <div class="music_back">
+        <div class="music">
+            <div class="music_logo">
+                <div class="back">
+                    <i class="fa-solid fa-chevron-left" onclick="back2()"></i>
+                </div>
+            </div>
+            <div class="play_music">
+                <b>
+                    <i class="fa-solid fa-music" style="color: pink;"></i> Play Music
+                </b>
+            </div>
+            <div class="music_circle">
+                <div class="music_image" id="track_image"></div>
+            </div>
+            <div class="music_name">
+                <p id="title">title.mp3</p>
+                <p id="artist">Artist name</p>
+            </div>
+            <div class="music_player">
+                <div class="player">
+                    <div class="suffle" >
+                        <i class="fa-solid fa-shuffle"id="shuffle" onclick="toggleShuffle()"></i>
+                        <i class="fa-solid fa-a" onclick="autoplay_switch()" id="auto"></i>
+                    </div>
+                    <div class="music_slider">
+                        <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+                    </div>
+                    <div class="music_buttons">
+                        <div id="previous" onclick="previous_song()"><i class="fa-solid fa-backward"></i></div>
+                        <div id="play" onclick="justplay()"><i class="fa fa-play"></i></div>
+                        <div id="next" onclick="playNextSong()"><i class="fa-solid fa-forward"></i></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        setInterval(() => {
             d = new Date();
             hr = d.getHours();
             min = d.getMinutes();
@@ -168,6 +258,7 @@
             minute.style.transform = `rotate(${min_rotation}deg)`;
             second.style.transform = `rotate(${sec_rotation}deg)`;
         }, 1000);
-</script>
+    </script>
 </body>
+
 </html>

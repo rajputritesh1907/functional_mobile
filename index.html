@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,7 +61,7 @@
             <div class="box">
                 <div class="social">
                     <div class="twitter">
-                        <i class="fa-solid fa-map-location-dot"></i>
+                        <i class="fa-solid fa-map-location-dot" onclick="map()"></i>
                     </div>
                     <div class="twitter">
                         <i class="fa-brands fa-chrome"></i>
@@ -149,7 +150,7 @@
                     </div>
                 </div>
                 <div class="facebook">
-                    <div class="phone" >
+                    <div class="phone">
                         <i class="fa-solid fa-camera" onclick="cam()"></i>
                     </div>
                 </div>
@@ -194,7 +195,7 @@
             <select class="cameraSelect"></select>
         </div>
         <div class="camera_middle">
-            <video  class="vid"  autoplay></video>
+            <video class="vid" autoplay></video>
         </div>
         <div class="camera_bottem">
             <div class="camera_rotate">
@@ -226,12 +227,13 @@
             </div>
             <div class="music_player">
                 <div class="player">
-                    <div class="suffle" >
-                        <i class="fa-solid fa-shuffle"id="shuffle" onclick="toggleShuffle()"></i>
+                    <div class="suffle">
+                        <i class="fa-solid fa-shuffle" id="shuffle" onclick="toggleShuffle()"></i>
                         <i class="fa-solid fa-a" onclick="autoplay_switch()" id="auto"></i>
                     </div>
                     <div class="music_slider">
-                        <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+                        <input type="range" min="0" max="100" value="0" id="duration_slider"
+                            onchange="change_duration()">
                     </div>
                     <div class="music_buttons">
                         <div id="previous" onclick="previous_song()"><i class="fa-solid fa-backward"></i></div>
@@ -239,9 +241,19 @@
                         <div id="next" onclick="playNextSong()"><i class="fa-solid fa-forward"></i></div>
                     </div>
                 </div>
-                
             </div>
         </div>
+    </div>
+    <div class="map">
+        <div class="back">
+            <i class="fa-solid fa-chevron-left" onclick="back3()"></i>
+        </div>
+        <div class="map_body">
+            <iframe
+                id="mapFrame"
+                allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="map_foot"></div>
     </div>
     <script src="script.js"></script>
     <script>

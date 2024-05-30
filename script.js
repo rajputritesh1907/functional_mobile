@@ -175,6 +175,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+    toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+            navigator.vibrate(200)
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            navigator.vibrate(200)
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+});
+
 function cals() {
     document.getElementsByClassName('cals')[0].style.opacity = 1;
     document.getElementsByClassName('cals')[0].style.zIndex = 2;

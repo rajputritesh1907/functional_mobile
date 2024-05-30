@@ -57,7 +57,7 @@ function updateClock() {
         document.getElementById('time').style.boxShadow = 'inset 5px 5px 10px #bb692c,inset -5px -5px 10px #fd8f3c';
         document.getElementsByClassName('box')[0].style.boxShadow = '5px 5px 10px #bb692c,-5px -5px 10px #fd8f3c';
     }
-    else{
+    else {
         document.getElementsByClassName('box')[0].style.backgroundImage = "url('./img/else.jpg')";
         document.getElementById('time').style.boxShadow = 'inset 5px 5px 10px #1a3653,inset -5px -5px 10px #244871';
         document.getElementsByClassName('box')[0].style.boxShadow = '5px 5px 10px #1a3653,-5px -5px 10px #244871';
@@ -164,11 +164,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     toggle.addEventListener('change', () => {
         if (toggle.checked) {
-            navigator.vibrate(2000)
+            navigator.vibrate(200)
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
         } else {
-            navigator.vibrate(2000)
+            navigator.vibrate(200)
             document.documentElement.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
         }
@@ -182,348 +182,330 @@ function cals() {
 }
 function back() {
     document.getElementsByClassName('cals')[0].style.zIndex = -2;
-    document.getElementsByClassName('cals')[0].style.animation= 200;
+    document.getElementsByClassName('cals')[0].style.animation = 200;
 }
 function back1() {
     document.getElementsByClassName('cam')[0].style.zIndex = -3;
 }
 let input = document.getElementById('inputBox');
-    let buttons = document.getElementsByClassName('num');
+let buttons = document.getElementsByClassName('num');
 
-    let string = "";
-    let arr = Array.from(buttons);
-    arr.forEach(button => {
-        button.addEventListener('click', (e) =>{
-            if(e.target.innerHTML == '='){
-                string = eval(string);
-                input.value = string;
-            } else if(e.target.innerHTML == 'AC'){
-                string = "";
-                input.value = string;
-            } else if(e.target.innerHTML == '⌫'){
-                string = string.substring(0, string.length-1);
-                input.value = string;
-            } else {
-                string += e.target.innerHTML;
-                input.value = string;
-            }
-            
-        });
-    });
-
-    function cam() {
-        document.getElementsByClassName('cam')[0].style.zIndex = 3;
-    }
-
-    // Camera Functionality
-    const video = document.getElementsByClassName('vid')[0];
-    const cameraSelect = document.getElementsByClassName('cameraSelect')[0];
-    const startButton = document.getElementById('startButton');
-
-    let stream;
-
-    // Function to enumerate video devices
-    async function getCameras() {
-        try {
-            const devices = await navigator.mediaDevices.enumerateDevices();
-            const videoDevices = devices.filter(device => device.kind === 'videoinput');
-            
-            // Clear existing options
-            cameraSelect.innerHTML = '';
-
-            // Add options for each video device
-            videoDevices.forEach((device, index) => {
-                const option = document.createElement('option');
-                option.value = device.deviceId;
-                option.text = device.label || `Camera ${index + 1}`;
-                cameraSelect.appendChild(option);
-            });
-        } catch (error) {
-            console.error('Error enumerating devices: ', error);
-        }
-    }
-
-    // Function to toggle the camera
-    async function toggleCamera() {
-        if (stream) {
-            // If stream exists, stop the camera
-            stream.getTracks().forEach(track => track.stop());
-            video.srcObject = null;
-            stream = null;
+let string = "";
+let arr = Array.from(buttons);
+arr.forEach(button => {
+    button.addEventListener('click', (e) => {
+        if (e.target.innerHTML == '=') {
+            string = eval(string);
+            input.value = string;
+        } else if (e.target.innerHTML == 'AC') {
+            string = "";
+            input.value = string;
+        } else if (e.target.innerHTML == '⌫') {
+            string = string.substring(0, string.length - 1);
+            input.value = string;
         } else {
-            // If stream does not exist, start the camera
-            const selectedDeviceId = cameraSelect.value;
-            const constraints = {
-                video: {
-                    deviceId: selectedDeviceId ? { exact: selectedDeviceId } : undefined
-                }
-            };
-            try {
-                stream = await navigator.mediaDevices.getUserMedia(constraints);
-                video.srcObject = stream;
-            } catch (error) {
-                console.error('Error accessing the camera: ', error);
+            string += e.target.innerHTML;
+            input.value = string;
+        }
+
+    });
+});
+
+function cam() {
+    document.getElementsByClassName('cam')[0].style.zIndex = 3;
+}
+
+// Camera Functionality
+const video = document.getElementsByClassName('vid')[0];
+const cameraSelect = document.getElementsByClassName('cameraSelect')[0];
+const startButton = document.getElementById('startButton');
+
+let stream;
+
+// Function to enumerate video devices
+async function getCameras() {
+    try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(device => device.kind === 'videoinput');
+
+        // Clear existing options
+        cameraSelect.innerHTML = '';
+
+        // Add options for each video device
+        videoDevices.forEach((device, index) => {
+            const option = document.createElement('option');
+            option.value = device.deviceId;
+            option.text = device.label || `Camera ${index + 1}`;
+            cameraSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error enumerating devices: ', error);
+    }
+}
+
+// Function to toggle the camera
+async function toggleCamera() {
+    if (stream) {
+        // If stream exists, stop the camera
+        stream.getTracks().forEach(track => track.stop());
+        video.srcObject = null;
+        stream = null;
+    } else {
+        // If stream does not exist, start the camera
+        const selectedDeviceId = cameraSelect.value;
+        const constraints = {
+            video: {
+                deviceId: selectedDeviceId ? { exact: selectedDeviceId } : undefined
             }
+        };
+        try {
+            stream = await navigator.mediaDevices.getUserMedia(constraints);
+            video.srcObject = stream;
+        } catch (error) {
+            console.error('Error accessing the camera: ', error);
         }
     }
+}
 
-    // Add event listener to the start/stop button
-    startButton.addEventListener('click', toggleCamera);
+// Add event listener to the start/stop button
+startButton.addEventListener('click', toggleCamera);
 
-    // Get the list of cameras when the page loads
-    getCameras();
+// Get the list of cameras when the page loads
+getCameras();
 
-    let play = document.querySelector('#play');
-        let previous = document.querySelector('#previous');
-        let next = document.querySelector('#next');
-        let title = document.querySelector('#title');
-        let slider = document.querySelector('#duration_slider');
-        let track_image = document.querySelector('#track_image');
-        let artist = document.querySelector('#artist');
-        let auto_play = document.querySelector('#auto');
-        let shuffleButton = document.querySelector('#shuffle');
+let play = document.querySelector('#play');
+let previous = document.querySelector('#previous');
+let next = document.querySelector('#next');
+let title = document.querySelector('#title');
+let slider = document.querySelector('#duration_slider');
+let track_image = document.querySelector('#track_image');
+let artist = document.querySelector('#artist');
+let auto_play = document.querySelector('#auto');
+let shuffleButton = document.querySelector('#shuffle');
 
-        let timer;
-        let autoplay = 0;
+let timer;
+let autoplay = 0;
+let shuffle = false;
 
-        let index_no = 0;
-        let Playing_song = false;
+let index_no = 0;
+let Playing_song = false;
 
-        // Create audio element
-        let track = document.createElement('audio');
+// Create audio element
+let track = document.createElement('audio');
 
-        // All songs list
-        let All_song = [
-            {
-                name: "Populer Weekend",
-                path: "./music/1.mp3",
-                img: "./img/1.jpg",
-                singer: "Weekend"
-            },
-            {
-                name: "Malang Sajna",
-                path: "./music/2.mp3",
-                img: "./img/2.jpg",
-                singer: "Sachet Parampara & Sachet Tandon"
-            },
-            {
-                name: "Alag Aasmaan",
-                path: "./music/3.mp3",
-                img: "./img/3.jpg",
-                singer: "Anuv jain"
-            },
-            {
-                name: "Choo lo",
-                path: "./music/4.mp3",
-                img: "./img/4.jpg",
-                singer: "The Local Train"
-            },
-            {
-                name: "Hass Hass",
-                path: "./music/5.mp3",
-                img: "./img/5.jpg",
-                singer: "Sia X Diljit Dosanjh"
-            },
-            {
-                name: "Shikayat",
-                path: "./music/6.mp3",
-                img: "./img/6.jpg",
-                singer: "AUR"
-            }
-        ];
+// All songs list
+let All_song = [
+    {
+        name: "Populer Weekend",
+        path: "./music/1.mp3",
+        img: "./img/1.jpg",
+        singer: "Weekend"
+    },
+    {
+        name: "Malang Sajna",
+        path: "./music/2.mp3",
+        img: "./img/2.jpg",
+        singer: "Sachet Parampara & Sachet Tandon"
+    },
+    {
+        name: "Alag Aasmaan",
+        path: "./music/3.mp3",
+        img: "./img/3.jpg",
+        singer: "Anuv jain"
+    },
+    {
+        name: "Choo lo",
+        path: "./music/4.mp3",
+        img: "./img/4.jpg",
+        singer: "The Local Train"
+    },
+    {
+        name: "Hass Hass",
+        path: "./music/5.mp3",
+        img: "./img/5.jpg",
+        singer: "Sia X Diljit Dosanjh"
+    },
+    {
+        name: "Shikayat",
+        path: "./music/6.mp3",
+        img: "./img/6.jpg",
+        singer: "AUR"
+    }
+];
 
-        // Load track
-        function load_track(index_no) {
-            clearInterval(timer);
-            reset_slider();
+// Load track
+function load_track(index_no) {
+    clearInterval(timer);
+    reset_slider();
 
-            track.src = All_song[index_no].path;
-            title.innerHTML = All_song[index_no].name;
-            track_image.style.backgroundImage = `url(${All_song[index_no].img})`;
-            artist.innerHTML = All_song[index_no].singer;
-            track.load();
+    track.src = All_song[index_no].path;
+    title.innerHTML = All_song[index_no].name;
+    track_image.style.backgroundImage = `url(${All_song[index_no].img})`;
+    artist.innerHTML = All_song[index_no].singer;
+    track.load();
 
-            timer = setInterval(range_slider, 1000);
+    timer = setInterval(range_slider, 1000);
+}
+
+load_track(index_no);
+
+// Play song
+function playsong() {
+    track.play();
+    Playing_song = true;
+    play.innerHTML = '<i class="fa fa-pause"></i>';
+}
+
+// Pause song
+function pausesong() {
+    track.pause();
+    Playing_song = false;
+    play.innerHTML = '<i class="fa fa-play"></i>';
+}
+
+// Toggle play/pause
+function justplay() {
+    if (Playing_song) {
+        pausesong();
+    } else {
+        playsong();
+    }
+}
+
+// Next song
+function next_song() {
+    if (shuffle) {
+        shuffleNextSong();
+    } else {
+        if (index_no < All_song.length - 1) {
+            index_no += 1;
+        } else {
+            index_no = 0;
         }
-
         load_track(index_no);
+        playsong();
+    }
+}
 
-        // Play song
-        function playsong() {
-            track.play();
-            Playing_song = true;
-            play.innerHTML = '<i class="fa fa-pause"></i>';
-        }
+// Previous song
+function previous_song() {
+    if (index_no > 0) {
+        index_no -= 1;
+    } else {
+        index_no = All_song.length - 1;
+    }
+    load_track(index_no);
+    playsong();
+}
 
-        // Pause song
-        function pausesong() {
-            track.pause();
-            Playing_song = false;
-            play.innerHTML = '<i class="fa fa-play"></i>';
-        }
+// Reset slider
+function reset_slider() {
+    slider.value = 0;
+}
 
-        // Toggle play/pause
-        function justplay() {
-            if (Playing_song) {
-                pausesong();
-                document.getElementsByClassName("back")[0].style.backgroundColor= "red";
-            } else {
-                playsong();
-            }
-        }
+// Change duration
+function change_duration() {
+    let slider_position = track.duration * (slider.value / 100);
+    track.currentTime = slider_position;
+}
 
-        // Next song
-        function next_song() {
-            if (index_no < All_song.length - 1) {
-                index_no += 1;
-            } else {
-                index_no = 0;
-            }
+// Update range slider
+function range_slider() {
+    let position = 0;
+    if (!isNaN(track.duration)) {
+        position = track.currentTime * (100 / track.duration);
+        slider.value = position;
+    }
+
+    // Auto play next song
+    if (track.ended) {
+        play.innerHTML = '<i class="fa fa-play"></i>';
+        if (autoplay) {
+            index_no += 1;
             load_track(index_no);
             playsong();
         }
+    }
+}
 
-        // Previous song
-        function previous_song() {
-            if (index_no > 0) {
-                index_no -= 1;
-            } else {
-                index_no = All_song.length - 1;
-            }
-            load_track(index_no);
-            playsong();
-        }
+function autoplay_switch() {
+    if (autoplay == 1) {
+        autoplay = 0;
+        auto_play.style.background = "rgba(255,255,255,0.2)";
+    } else {
+        autoplay = 1;
+        auto_play.style.background = "red";
+    }
+}
 
-        // Reset slider
-        function reset_slider() {
-            slider.value = 0;
-        }
-
-        // Change duration
-        function change_duration() {
-            let slider_position = track.duration * (slider.value / 100);
-            track.currentTime = slider_position;
-        }
-
-        // Update range slider
-        function range_slider() {
-            let position = 0;
-            if (!isNaN(track.duration)) {
-                position = track.currentTime * (100 / track.duration);
-                slider.value = position;
-            }
-
-            // Auto play next song
-            if (track.ended) {
-                play.innerHTML = '<i class="fa fa-play"></i>';
-                if (autoplay) {
-                    index_no += 1;
-                    load_track(index_no);
-                    playsong();
-                }
-            }
-        }
-        function music() {
-            document.getElementsByClassName('music_back')[0].style.zIndex = 3;
-        }
-        function back2() {
-            document.getElementsByClassName('music_back')[0].style.zIndex = -3;
-        }
-        
-
-        function autoplay_switch(){
-            if (autoplay==1){
-               autoplay = 0;
-               auto_play.style.background = "rgba(255,255,255,0.2)";
-            }else{
-               autoplay = 1;
-               auto_play.style.background = "#red";
-            }
-        }
-
-        function playNextSong() {
-            if (shuffle) {
-                shuffleNextSong();
-            } else {
-                index_no = (currentIndex + 1) % playlist.length;
-                load_track(index_no);
-            }
-        }
-
-        function shuffleNextSong() {
-            let newIndex;
-            do {
-                newIndex = Math.floor(Math.random() * All_song.length);
-            } while (newIndex === index_no);
-            index_no = newIndex;
-            load_track(index_no);
-        }
-
-        // function toggleShuffle() {
-        //     shuffle = !shuffle;
-        //     shuffleButton.innerHTML = shuffle ? shuffle.innerHTML = '<i class="fa-solid fa-shuffle"></i>':shuffle.innerHTML = '<i class="fa-solid fa-shuffle" style="color: red;"></i>';
-        // }
-        function toggleShuffle() {
-            if (shuffle= !shuffle){
-                // shuffle.style.color = "var(--black-font)";
-                document.getElementById("shuffle").style.color = "var(--black-font)";
-             }else{
-                document.getElementById("shuffle").style.color = "red";
-             }
-        }
+function shuffleNextSong() {
+    let newIndex;
+    do {
+        newIndex = Math.floor(Math.random() * All_song.length);
+    } while (newIndex === index_no);
+    index_no = newIndex;
+    load_track(index_no);
+    playsong();
+}
+function toggleShuffle() {
+    shuffle = !shuffle;
+    shuffleButton.style.color = shuffle ? "red" : "var(--black-font)";
+}
+function music() {
+    document.getElementsByClassName('music_back')[0].style.zIndex = 3;
+}
 
 
+function initMap() {
+    // Check if Geolocation is supported
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(showPosition, showError, {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
 
-        function initMap() {
-            // Check if Geolocation is supported
-            if (navigator.geolocation) {
-                navigator.geolocation.watchPosition(showPosition, showError, {
-                    enableHighAccuracy: true,
-                    timeout: 5000,
-                    maximumAge: 0
-                });
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
+// Function to show the position
+function showPosition(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
 
-        // Function to show the position
-        function showPosition(position) {
-            var lat = position.coords.latitude;
-            var lon = position.coords.longitude;
-            
-            var mapFrame = document.getElementById("mapFrame");
-            var src = `https://www.google.com/maps/embed/v1/directions?
+    var mapFrame = document.getElementById("mapFrame");
+    var src = `https://www.google.com/maps/embed/v1/directions?
 origin=current+location
 &destination=current+location
 &key=AIzaSyC-5CY9mOCeg5Y3IhPqi_Yd0-DZtWrJl-E`;
-            mapFrame.src = src;
-        }
+    mapFrame.src = src;
+}
 
-        // Function to handle errors
-        function showError(error) {
-            switch(error.code) {
-                case error.PERMISSION_DENIED:
-                    alert("User denied the request for Geolocation.");
-                    break;
-                case error.POSITION_UNAVAILABLE:
-                    alert("Location information is unavailable.");
-                    break;
-                case error.TIMEOUT:
-                    alert("The request to get user location timed out.");
-                    break;
-                case error.UNKNOWN_ERROR:
-                    alert("An unknown error occurred.");
-                    break;
-            }
-        }
+// Function to handle errors
+function showError(error) {
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
 
-        // Initialize map on page load
-        window.onload = initMap;
+// Initialize map on page load
+window.onload = initMap;
 
-        function back3() {
-            document.getElementsByClassName('map')[0].style.zIndex = -3;
-        }
-        function map() {
-            document.getElementsByClassName('map')[0].style.zIndex = 3;
-        }
+function back3() {
+    document.getElementsByClassName('map')[0].style.zIndex = -3;
+}
+function map() {
+    document.getElementsByClassName('map')[0].style.zIndex = 3;
+}

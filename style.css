@@ -879,7 +879,7 @@ input {
     width: 22vh;
     border-radius: 50%;
     background-position: center;
-    background-size: cover;
+    background-size: contain;
 }
 
 .music_name {

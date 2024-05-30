@@ -454,7 +454,9 @@ function toggleShuffle() {
 function music() {
     document.getElementsByClassName('music_back')[0].style.zIndex = 3;
 }
-
+function back2() {
+    document.getElementsByClassName('music_back')[0].style.zIndex = -3;
+}
 
 function initMap() {
     // Check if Geolocation is supported

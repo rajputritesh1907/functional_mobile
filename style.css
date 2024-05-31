@@ -55,13 +55,21 @@ body {
     /* Internet Explorer/Edge */
 }
 #main {
+    height: 70vh;
+    width: 36vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+}
+.main{
     background-color: var(--body-color);
-    height: 70vh;
-    width: 36vh;
+    height: 100%;
+    width: 100%;
     border-radius: 4vh;
     border: 1.5vh solid var(--white-color);
     padding: 3vh;
@@ -69,7 +77,6 @@ body {
     flex-direction: column;
     gap: 2vh;
 }
-
 .container {
     gap: 2vh;
     display: flex;
@@ -219,6 +226,7 @@ body {
 .circle2 {
     position: absolute;
     margin-left: 1.6vh;
+    margin-top: -3vh;
     top: 13vh;
     display: flex;
     flex-direction: column;
@@ -679,6 +687,7 @@ body {
 }
 
 .cals {
+    position: absolute;
     height: 73vh;
     width: 39vh;
     background-color: var(--body-color);
@@ -748,6 +757,7 @@ body {
 }
 
 .cam {
+    position: absolute;
     height: 73vh;
     width: 39vh;
     background: var(--body-color);
@@ -814,6 +824,7 @@ body {
 }
 
 .music_back {
+    position: absolute;
     height: 73vh;
     width: 39vh;
     background: var(--body-color);
@@ -971,6 +982,7 @@ body {
 }
 
 .map {
+    position: absolute;
     height: 73vh;
     width: 39vh;
     background: var(--body-color);
@@ -998,8 +1010,8 @@ body {
 }
 
 .weather {
+    position: absolute;
     height: 73vh;
-    
     width: 39vh;
     background: var(--body-color);
     position: absolute;

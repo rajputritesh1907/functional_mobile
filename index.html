@@ -13,267 +13,269 @@
 
 <body>
     <div id="main">
-        <div class="container">
-            <div class="box">
-                <div id="time"></div>
-                <div id="date"></div>
-                <div class="battery">
-                    <div id="battery_border">
-                        <div class="inner_battery">
-                            •⩊•
+        <div class="main">
+            <div class="container">
+                <div class="box">
+                    <div id="time"></div>
+                    <div id="date"></div>
+                    <div class="battery">
+                        <div id="battery_border">
+                            <div class="inner_battery">
+                                •⩊•
+                            </div>
                         </div>
-                    </div>
-                    <div class="percentage_battery">
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <div class="rhs_time">
-                    <p style="margin-left: 10%; margin-top: 5%; font-size: 2vh;">Today</p>
-                    <div class="rhs_time_box">
-                        <div id="hours">
-
-                        </div>H
-                        <div id="minutes">
-
-                        </div>M
-                        <div id="seconds">
-
+                        <div class="percentage_battery">
                         </div>
                     </div>
                 </div>
-                <div class="rhs_time">
-                    <div class="circle">
-                        <div class="yellow"></div>
-                        <div class="gray"></div>
+                <div class="box">
+                    <div class="rhs_time">
+                        <p style="margin-left: 10%; margin-top: 5%; font-size: 2vh;">Today</p>
+                        <div class="rhs_time_box">
+                            <div id="hours">
+    
+                            </div>H
+                            <div id="minutes">
+    
+                            </div>M
+                            <div id="seconds">
+    
+                            </div>
+                        </div>
                     </div>
-                    <div class="circle2">
-                        45%
-                    </div>
-                    <div class="this_year">
-                        <h3>this year</h3>
-                        <p id="days"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="box">
-                <div class="social">
-                    <div class="twitter">
-                        <i class="fa-solid fa-map-location-dot" onclick="map()"></i>
-                    </div>
-                    <div class="twitter">
-                        <i class="fa-solid fa-cloud-sun-rain" onclick="weather()"></i>
-                    </div>
-                </div>
-                <div class="toggle">
-                    <label class="switch" id="hlo">
-                        <input type="checkbox" id="checkbox">
-                        <span class="slider" for="checkbox"></span>
-                    </label>
-                </div>
-            </div>
-            <div class="box">
-                <div class="watch">
-                    <ul>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                        <li class="numbers">
-                            <sapn>|</sapn>
-                        </li>
-                    </ul>
-                    <div class="circle1"></div>
-                    <div class="hour" id="hour"></div>
-                    <div class="minute" id="minute"></div>
-                    <div class="second" id="second"></div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="box">
-                <div class="tea"><strong id="add" onclick="increment()">+</strong><i
-                        class="fa-solid fa-whiskey-glass"><strong id="sub" onclick="decrement()">-</strong></i>
-                </div>
-                <div class="add_tea">
-                    <H4 class="add_tea1">0/8</H4>
-                </div>
-            </div>
-            <div class="box">
-                <div class="cal">
-                    <div class="calendar"><i class="fa-solid fa-calendar"></i></div>
-                    <div class="notes"><i class="fa-solid fa-calculator" onclick="cals()"></i></div>
-                </div>
-                <div class="cal">
-                    <div class="facebook"><i class="fa-brands fa-facebook-f"></i></div>
-                    <div class="facebook" onclick="music()">
-                        <i class="fa-solid fa-music"></i>
+                    <div class="rhs_time">
+                        <div class="circle">
+                            <div class="yellow"></div>
+                            <div class="gray"></div>
+                        </div>
+                        <div class="circle2">
+                            45%
+                        </div>
+                        <div class="this_year">
+                            <h3>this year</h3>
+                            <p id="days"></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div class="last_box">
-                <div class="facebook">
-                    <div class="phone">
-                        <i class="fa-solid fa-phone"></i>
+            <div class="container">
+                <div class="box">
+                    <div class="social">
+                        <div class="twitter">
+                            <i class="fa-solid fa-map-location-dot" onclick="map()"></i>
+                        </div>
+                        <div class="twitter">
+                            <i class="fa-solid fa-cloud-sun-rain" onclick="weather()"></i>
+                        </div>
+                    </div>
+                    <div class="toggle">
+                        <label class="switch" id="hlo">
+                            <input type="checkbox" id="checkbox">
+                            <span class="slider" for="checkbox"></span>
+                        </label>
                     </div>
                 </div>
-                <div class="facebook">
-                    <div class="phone">
-                        <i class="fa-solid fa-camera" onclick="cam()"></i>
+                <div class="box">
+                    <div class="watch">
+                        <ul>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                            <li class="numbers">
+                                <sapn>|</sapn>
+                            </li>
+                        </ul>
+                        <div class="circle1"></div>
+                        <div class="hour" id="hour"></div>
+                        <div class="minute" id="minute"></div>
+                        <div class="second" id="second"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="cals">
-        <div class="back">
-            <i class="fa-solid fa-chevron-left" onclick="back()"></i>
-        </div>
-        <div class="cals_cover">
-            <div class="cals_display">
-                <input type="text" placeholder="0" id="inputBox">
-            </div>
-            <div class="cals_butt">
-                <div class="num operator">AC</div>
-                <div class="num del">⌫</div>
-                <div class="num operator">%</div>
-                <div class="num operator">/</div>
-                <div class="num butt">7</div>
-                <div class="num butt">8</div>
-                <div class="num butt">9</div>
-                <div class="num operator">*</div>
-                <div class="num butt">4</div>
-                <div class="num butt">5</div>
-                <div class="num butt">6</div>
-                <div class="num operator">-</div>
-                <div class="num butt">1</div>
-                <div class="num butt">2</div>
-                <div class="num butt">3</div>
-                <div class="num operator">+</div>
-                <div class="num butt">00</div>
-                <div class="num butt">0</div>
-                <div class="num butt">.</div>
-                <div class="num operator">=</div>
-            </div>
-        </div>
-    </div>
-    <div class="cam">
-        <div class="back">
-            <i class="fa-solid fa-chevron-left" onclick="back1()"></i>
-            <select class="cameraSelect"></select>
-        </div>
-        <div class="camera_middle">
-            <video class="vid" autoplay></video>
-        </div>
-        <div class="camera_bottem">
-            <div class="camera_rotate">
-                <i class="fa-solid fa-camera-rotate"></i>
-            </div>
-            <div class="camera_click">
-                <div class="camera_click2" id="startButton"></div>
-            </div>
-        </div>
-    </div>
-    <div class="music_back">
-        <div class="music">
-            <div class="music_logo">
-                <div class="back">
-                    <i class="fa-solid fa-chevron-left" onclick="back2()"></i>
+            <div class="container">
+                <div class="box">
+                    <div class="tea"><strong id="add" onclick="increment()">+</strong><i
+                            class="fa-solid fa-whiskey-glass"><strong id="sub" onclick="decrement()">-</strong></i>
+                    </div>
+                    <div class="add_tea">
+                        <H4 class="add_tea1">0/8</H4>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="cal">
+                        <div class="calendar"><i class="fa-solid fa-calendar"></i></div>
+                        <div class="notes"><i class="fa-solid fa-calculator" onclick="cals()"></i></div>
+                    </div>
+                    <div class="cal">
+                        <div class="facebook"><i class="fa-brands fa-facebook-f"></i></div>
+                        <div class="facebook" onclick="music()">
+                            <i class="fa-solid fa-music"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="play_music">
-                <b>
-                    <i class="fa-solid fa-music" style="color: pink;"></i> Play Music
-                </b>
-            </div>
-            <div class="music_circle">
-                <div class="music_image" id="track_image"></div>
-            </div>
-            <div class="music_name">
-                <p id="title">title.mp3</p>
-                <p id="artist">Artist name</p>
-            </div>
-            <div class="music_player">
-                <div class="player">
-                    <div class="suffle">
-                        <i class="fa-solid fa-shuffle" id="shuffle" onclick="toggleShuffle()"></i>
-                        <i class="fa-solid fa-a" onclick="autoplay_switch()" id="auto"></i>
+            <div class="container">
+                <div class="last_box">
+                    <div class="facebook">
+                        <div class="phone">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
                     </div>
-                    <div class="music_slider">
-                        <input type="range" min="0" max="100" value="0" id="duration_slider"
-                            onchange="change_duration()">
-                    </div>
-                    <div class="music_buttons">
-                        <div id="previous" onclick="previous_song()"><i class="fa-solid fa-backward"></i></div>
-                        <div id="play" onclick="justplay()"><i class="fa fa-play"></i></div>
-                        <div id="next" onclick="next_song()"><i class="fa-solid fa-forward"></i></div>
+                    <div class="facebook">
+                        <div class="phone">
+                            <i class="fa-solid fa-camera" onclick="cam()"></i>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="map">
-        <div class="back">
-            <i class="fa-solid fa-chevron-left" onclick="back3()"></i>
-        </div>
-        <div class="map_body">
-            <iframe id="mapFrame" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <div class="map_foot">
-
-        </div>
-    </div>
-    <div class="weather">
-        <div class="back">
-            <i class="fa-solid fa-chevron-left" onclick="back4()"></i>
-        </div>
-        <div class="weather_body">
-            <div class="weather_input">
-                <input type="text" id="city-input" placeholder="Enter city name">
-                <div class="weather_btn" onclick="weatherFn($('#city-input').val())">
-                    search
+        <div class="cals">
+            <div class="back">
+                <i class="fa-solid fa-chevron-left" onclick="back()"></i>
+            </div>
+            <div class="cals_cover">
+                <div class="cals_display">
+                    <input type="text" placeholder="0" id="inputBox">
+                </div>
+                <div class="cals_butt">
+                    <div class="num operator">AC</div>
+                    <div class="num del">⌫</div>
+                    <div class="num operator">%</div>
+                    <div class="num operator">/</div>
+                    <div class="num butt">7</div>
+                    <div class="num butt">8</div>
+                    <div class="num butt">9</div>
+                    <div class="num operator">*</div>
+                    <div class="num butt">4</div>
+                    <div class="num butt">5</div>
+                    <div class="num butt">6</div>
+                    <div class="num operator">-</div>
+                    <div class="num butt">1</div>
+                    <div class="num butt">2</div>
+                    <div class="num butt">3</div>
+                    <div class="num operator">+</div>
+                    <div class="num butt">00</div>
+                    <div class="num butt">0</div>
+                    <div class="num butt">.</div>
+                    <div class="num operator">=</div>
                 </div>
             </div>
-            <div class="weather_main">
-                <div id="weather-info" class="animate__animated animate__fadeIn">
-                    <div id="city-name">
+        </div>
+        <div class="cam">
+            <div class="back">
+                <i class="fa-solid fa-chevron-left" onclick="back1()"></i>
+                <select class="cameraSelect"></select>
+            </div>
+            <div class="camera_middle">
+                <video class="vid" autoplay></video>
+            </div>
+            <div class="camera_bottem">
+                <div class="camera_rotate">
+                    <i class="fa-solid fa-camera-rotate"></i>
+                </div>
+                <div class="camera_click">
+                    <div class="camera_click2" id="startButton"></div>
+                </div>
+            </div>
+        </div>
+        <div class="music_back">
+            <div class="music">
+                <div class="music_logo">
+                    <div class="back">
+                        <i class="fa-solid fa-chevron-left" onclick="back2()"></i>
                     </div>
-                    <p id="temperature"></p>
-                    <p id="description"></p>
-                    <p id="wind-speed"></p>
+                </div>
+                <div class="play_music">
+                    <b>
+                        <i class="fa-solid fa-music" style="color: pink;"></i> Play Music
+                    </b>
+                </div>
+                <div class="music_circle">
+                    <div class="music_image" id="track_image"></div>
+                </div>
+                <div class="music_name">
+                    <p id="title">title.mp3</p>
+                    <p id="artist">Artist name</p>
+                </div>
+                <div class="music_player">
+                    <div class="player">
+                        <div class="suffle">
+                            <i class="fa-solid fa-shuffle" id="shuffle" onclick="toggleShuffle()"></i>
+                            <i class="fa-solid fa-a" onclick="autoplay_switch()" id="auto"></i>
+                        </div>
+                        <div class="music_slider">
+                            <input type="range" min="0" max="100" value="0" id="duration_slider"
+                                onchange="change_duration()">
+                        </div>
+                        <div class="music_buttons">
+                            <div id="previous" onclick="previous_song()"><i class="fa-solid fa-backward"></i></div>
+                            <div id="play" onclick="justplay()"><i class="fa fa-play"></i></div>
+                            <div id="next" onclick="next_song()"><i class="fa-solid fa-forward"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <div class="back">
+                <i class="fa-solid fa-chevron-left" onclick="back3()"></i>
+            </div>
+            <div class="map_body">
+                <iframe id="mapFrame" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="map_foot">
+    
+            </div>
+        </div>
+        <div class="weather">
+            <div class="back">
+                <i class="fa-solid fa-chevron-left" onclick="back4()"></i>
+            </div>
+            <div class="weather_body">
+                <div class="weather_input">
+                    <input type="text" id="city-input" placeholder="Enter city name">
+                    <div class="weather_btn" onclick="weatherFn($('#city-input').val())">
+                        search
+                    </div>
+                </div>
+                <div class="weather_main">
+                    <div id="weather-info" class="animate__animated animate__fadeIn">
+                        <div id="city-name">
+                        </div>
+                        <p id="temperature"></p>
+                        <p id="description"></p>
+                        <p id="wind-speed"></p>
+                    </div>
                 </div>
             </div>
         </div>

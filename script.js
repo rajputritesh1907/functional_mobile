@@ -557,7 +557,7 @@ function weather() {
     document.getElementsByClassName('weather')[0].style.zIndex = 3;
 }
 function back4() {
-    document.getElementsByClassName('weather')[0].style.animation= 'weather_ani 0.5s';
+    // document.getElementsByClassName('weather')[0].style.animation= 'weather_ani 0.5s';
     document.getElementsByClassName('weather')[0].style.zIndex = -3;
 }
 

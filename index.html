@@ -64,7 +64,7 @@
                         <i class="fa-solid fa-map-location-dot" onclick="map()"></i>
                     </div>
                     <div class="twitter">
-                        <i class="fa-brands fa-chrome"></i>
+                        <i class="fa-solid fa-cloud-sun-rain" onclick="weather()"></i>
                     </div>
                 </div>
                 <div class="toggle">
@@ -124,7 +124,8 @@
         <div class="container">
             <div class="box">
                 <div class="tea"><strong id="add" onclick="increment()">+</strong><i
-                        class="fa-solid fa-whiskey-glass"><strong id="sub" onclick="decrement()">-</strong></i></div>
+                        class="fa-solid fa-whiskey-glass"><strong id="sub" onclick="decrement()">-</strong></i>
+                </div>
                 <div class="add_tea">
                     <H4 class="add_tea1">0/8</H4>
                 </div>
@@ -232,7 +233,8 @@
                         <i class="fa-solid fa-a" onclick="autoplay_switch()" id="auto"></i>
                     </div>
                     <div class="music_slider">
-                        <input type="range" min="0" max="100" value="0" id="duration_slider" onchange="change_duration()">
+                        <input type="range" min="0" max="100" value="0" id="duration_slider"
+                            onchange="change_duration()">
                     </div>
                     <div class="music_buttons">
                         <div id="previous" onclick="previous_song()"><i class="fa-solid fa-backward"></i></div>
@@ -248,12 +250,38 @@
             <i class="fa-solid fa-chevron-left" onclick="back3()"></i>
         </div>
         <div class="map_body">
-            <iframe
-                id="mapFrame"
-                allowfullscreen="" loading="lazy"></iframe>
+            <iframe id="mapFrame" allowfullscreen="" loading="lazy"></iframe>
         </div>
-        <div class="map_foot"></div>
+        <div class="map_foot">
+
+        </div>
     </div>
+    <div class="weather">
+        <div class="back">
+            <i class="fa-solid fa-chevron-left" onclick="back4()"></i>
+        </div>
+        <div class="weather_body">
+            <div class="weather_input">
+                <input type="text" id="city-input" placeholder="Enter city name">
+                <div class="weather_btn" onclick="weatherFn($('#city-input').val())">
+                    search
+                </div>
+            </div>
+            <div class="weather_main">
+                <div id="weather-info" class="animate__animated animate__fadeIn">
+                    <div id="city-name">
+                    </div>
+                    <p id="temperature"></p>
+                    <p id="description"></p>
+                    <p id="wind-speed"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script src="https://momentjs.com/downloads/moment.min.js">
+    </script>
     <script src="script.js"></script>
     <script>
         setInterval(() => {

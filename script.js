@@ -466,7 +466,8 @@ function initMap() {
             timeout: 5000,
             maximumAge: 0
         });
-    } else {
+    } 
+    else {
         alert("Geolocation is not supported by this browser.");
     }
 }
@@ -484,7 +485,6 @@ origin=current+location
     mapFrame.src = src;
 }
 
-// Function to handle errors
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
@@ -511,3 +511,53 @@ function back3() {
 function map() {
     document.getElementsByClassName('map')[0].style.zIndex = 3;
 }
+
+
+const url =
+    'https://api.openweathermap.org/data/2.5/weather';
+const apiKey =
+    'f00c38e0279b7bc85480c3fe775d518c';
+ 
+$(document).ready(function () {
+    weatherFn('delhi');
+});
+ 
+async function weatherFn(cName) {
+    const temp =
+        `${url}?q=${cName}&appid=${apiKey}&units=metric`;
+    try {
+        const res = await fetch(temp);
+        const data = await res.json();
+        if (res.ok) {
+            weatherShowFn(data);
+        } else {
+            alert('City not found. Please try again.');
+        }
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+    }
+    
+}
+ 
+function weatherShowFn(data) {
+    $('#city-name').text(data.name);
+    $('#temperature').
+        html(`${data.main.temp}°C`);
+    $('#description').
+        text(data.weather[0].description);
+    $('#wind-speed').
+        html(`Wind Speed: ${data.wind.speed} m/s`);
+    
+    $('#weather-info').fadeIn();
+}
+
+
+
+function weather() {
+    document.getElementsByClassName('weather')[0].style.zIndex = 3;
+}
+function back4() {
+    document.getElementsByClassName('weather')[0].style.animation= 'weather_ani 0.5s';
+    document.getElementsByClassName('weather')[0].style.zIndex = -3;
+}
+

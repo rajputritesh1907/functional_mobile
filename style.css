@@ -10,8 +10,8 @@
     --inner-shadow: inset 5px 5px 10px #c9c9c9,
         inset -5px -5px 10px #ffffff;
     --camera-color: rgb(179, 175, 175);
-    --music-shadow:10px 10px 20px #c9c9c9,
-                    -10px -10px 20px #ffffff;
+    --music-shadow: 10px 10px 20px #c9c9c9,
+        -10px -10px 20px #ffffff;
 }
 
 [data-theme="dark"] {
@@ -22,11 +22,11 @@
     --shadow-color: #2e2e2e;
     --outer-shadow: 5px 5px 10px #363636,
         -1px -1px 10px #2e2e2e;
-    --inner-shadow: inset 5px 5px 10px #0f0f0f,
-        inset 0px 0px 10px #151515;
+    --inner-shadow: inset 5px 5px 10px #363636,
+        inset 0px 0px 10px #2e2e2e;
     --camera-color: rgb(32, 31, 31);
-    --music-shadow:10px 10px 20px #363636,
-                    -10px -10px 20px #2e2e2e;
+    --music-shadow: 10px 10px 20px #363636,
+        -10px -10px 20px #2e2e2e;
 }
 
 * {
@@ -54,7 +54,6 @@ body {
     -ms-user-select: none;
     /* Internet Explorer/Edge */
 }
-
 #main {
     position: absolute;
     top: 50%;
@@ -243,10 +242,7 @@ body {
     width: 18vh;
 }
 
-.twitter {
-    padding: 2vh;
-    background-color: red;
-}
+
 
 .twitter {
     color: skyblue;
@@ -260,7 +256,7 @@ body {
 }
 
 .twitter:nth-child(2) {
-    color: rgb(185, 185, 73);
+    color: rgb(68, 128, 151);
 }
 
 
@@ -325,18 +321,18 @@ body {
     content: "(˶ ᵔ ̫ ᵔ ˶)";
 }
 
-input:checked+.slider {
+.toggle input:checked+.slider {
     background: var(--body-color);
     border: 1px solid var(--body-color);
 }
 
-input:focus+.slider {
+.toggle input:focus+.slider {
     box-shadow: 0 0 1px #d4d412;
     box-shadow: var(--outer-shadow);
 
 }
 
-input:checked+.slider:before {
+.toggle input:checked+.slider:before {
     transform: translateX(7vh);
     background-color: #adb5bd;
     content: "(⸝ᴗ﹏ᴗ⸝)";
@@ -643,7 +639,9 @@ input:checked+.slider:before {
 }
 
 .last_box .facebook:nth-child(2):hover,
-.box .notes:hover ,.cal .facebook:nth-child(2):hover,.social .twitter:nth-child(1):hover {
+.box .notes:hover,
+.cal .facebook:nth-child(2):hover,
+.social .twitter:hover {
     box-shadow: var(--inner-shadow);
 }
 
@@ -716,7 +714,7 @@ input:checked+.slider:before {
     border: 1px solid white;
 }
 
-input {
+.cals_display input {
     border: none;
     width: 320px;
     padding: 24px;
@@ -761,7 +759,7 @@ input {
 
 .camera_middle {
     width: 100%;
-    height: 75%;
+    height: 82%;
     background: var(--body-color);
     overflow: hidden;
 }
@@ -777,13 +775,12 @@ input {
 
 
 .camera_bottem {
+    padding: 2vh;
     width: 70%;
-    height: 17%;
     background: var(--body-color);
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .camera_rotate {
@@ -895,10 +892,12 @@ input {
     align-items: center;
     gap: 4vh;
 }
-.play_music i{
+
+.play_music i {
     font-size: clamp(2rem, 4vh, 1.5rem);
 }
-.player{
+
+.player {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -906,7 +905,8 @@ input {
     flex-direction: column;
     gap: 1.5vh;
 }
-.suffle{
+
+.suffle {
     width: 70%;
     display: flex;
     justify-content: space-between;
@@ -914,13 +914,15 @@ input {
     flex-direction: row;
     font-size: clamp(.5rem, 3vh, 1.25rem);
 }
-.suffle i{
+
+.suffle i {
     padding: 1vh;
     background-color: var(--body-color);
     box-shadow: var(--outer-shadow);
     border-radius: 1vh;
 }
-.music_slider{
+
+.music_slider {
     width: 75%;
     height: 2vh;
     display: flex;
@@ -930,6 +932,7 @@ input {
     overflow: hidden;
     box-shadow: var(--outer-shadow);
 }
+
 .music_player input[type="range"] {
     -webkit-appearance: none;
     background-color: var(--body-color);
@@ -938,10 +941,10 @@ input {
     /* overflow: hidden; */
 }
 
-input[type="range"]::-webkit-slider-thumb {
+.music_player input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 1vh;
-    background: transparent;    
+    background: transparent;
     cursor: pointer;
     box-shadow: -415px 0 0 400px #adaaaa;
 }
@@ -962,9 +965,11 @@ input[type="range"]::-webkit-slider-thumb {
     box-shadow: var(--outer-shadow);
     font-size: clamp(.5rem, 3vh, 1.25rem);
 }
-.music_logo .back i{
+
+.music_logo .back i {
     box-shadow: transparent;
 }
+
 .map {
     height: 73vh;
     width: 39vh;
@@ -976,15 +981,134 @@ input[type="range"]::-webkit-slider-thumb {
     flex-direction: column;
     z-index: -3;
 }
-.map_body{
+
+.map_body {
     height: 75%;
     width: 100%;
 }
-.map_body iframe{
+
+.map_body iframe {
     height: 100%;
     width: 100%;
 }
-.map_foot{
+
+.map_foot {
     height: 13%;
     width: 100%;
+}
+
+.weather {
+    height: 73vh;
+    
+    width: 39vh;
+    background: var(--body-color);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2vh;
+    /* background-color: red; */
+    z-index: -3;
+}
+
+.weather_body {
+    color: #fafafa;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(#449ff8, #031eb5);
+    font-family: monospace;
+    font-size: clamp(1rem, 3.5vh, 1.5rem);
+    gap: 2vh;
+}
+
+.weather_main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    padding: 2vh;
+    font-size: clamp(1rem, 4vh, 2rem);
+    height: 70%;
+    width: 75%;
+    border-radius: 10px;
+    backdrop-filter: blur(30px);
+    background: linear-gradient(#5fa0f0, #3852c1);
+    box-shadow: 10px 10px 30px #3046a4,
+        -10px -10px 30px #405ede;
+}
+
+.weather_body input {
+    font-size: clamp(.5rem, 3.5vh, 1.5rem);
+    padding: 1vh;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 20vh;
+}
+
+.weather_input {
+    display: flex;
+    gap: 1vh;
+    flex-direction: row;
+}
+
+.weather_body input:focus {
+    outline: none;
+    border-color: #2196F3;
+}
+
+#city-name {
+    font-size: clamp(2rem, 5vh, 4rem);
+
+}
+
+.weather_btn {
+    padding: 1vh;
+    background-color: blue;
+}
+
+#weather-info {
+    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#temperature {
+    font-size: clamp(1rem, 4vh, 2rem);
+    font-weight: bold;
+    margin: 8px 0;
+    text-align: center;
+}
+
+#description {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#wind-speed {
+    text-align: center;
+}
+
+.map .back,
+.weather .back {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+@keyframes weather_ani {
+    0%{
+        margin-left: 0;
+        z-index: 3;
+    }
+    100%{
+        margin-left: 40%;
+        z-index: -3;
+    }
 }

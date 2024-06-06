@@ -102,54 +102,62 @@ document.addEventListener("DOMContentLoaded", function () {
             function updateBatteryStatus() {
                 const batteryPercentage = Math.round(battery.level * 100) + "%";
                 document.getElementsByClassName("percentage_battery")[0].innerText = "Charge " + batteryPercentage;
-                if (batteryPercentage >= 90) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#98c1bd";
-                    document.getElementsByClassName("inner_battery")[0].style.textContent = "(..◜ᴗ◝..)";
+                const innerBattery = document.getElementsByClassName("inner_battery")[0];
+                
+                if (battery.level >= 0.90) {
+                    innerBattery.style.background = "#006400";
+                    innerBattery.style.fontSize = "clamp(0.4rem, 1.4vh, 0.9rem)";
+                    innerBattery.innerText = "..◜ᴗ◝..";
                 }
-                else if (batteryPercentage >= 80) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#98A3C1";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "(˶ᵔ ᵕ ᵔ˶)";
+                else if (battery.level >= 0.70) {
+                    innerBattery.style.background = "#228B22";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.innerText = "(˶ᵔ ᵕ ᵔ˶)";
                 }
-                else if (batteryPercentage >= 70) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#98c1a8";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "•⩊•";
+                else if (battery.level >= 0.70) {
+                    innerBattery.style.background = "#2E8B57";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.innerText = "•⩊•";
                 }
-                else if (batteryPercentage >= 60) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#a1c198";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "( •⌄• )";
+                else if (battery.level >= 0.60) {
+                    innerBattery.style.background = "#3CB371";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.innerText = "( •⌄• )";
                 }
-                else if (batteryPercentage >= 50) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "b3c198";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "(´･_･`)";
+                else if (battery.level >= 0.50) {
+                    innerBattery.style.background = "#556B2F";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.innerText = "(´･_･`)";
                 }
-                else if (batteryPercentage >= 40) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#c0c198";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "(⊙_⊙)";
+                else if (battery.level >= 0.40) {
+                    innerBattery.style.background = "#808000";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.innerText = "(⊙_⊙)";
                 }
-                else if (batteryPercentage >= 30) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#c1b598";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "(,,>﹏<,,)";
+                else if (battery.level >= 0.30) {
+                    innerBattery.style.background = "#8B4513";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.innerText = "(>﹏<)";
                 }
-                else if (batteryPercentage >= 20) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#c1a998";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "( ˵ •̀ □ •́ ˵ )";
+                else if (battery.level >= 0.20) {
+                    innerBattery.style.background = "#A0522D";
+                    innerBattery.style.fontSize = "clamp(0.75rem, 1.75vh, 1.5rem)";
+                    innerBattery.innerText = "ಠಿ‸ಠ";
                 }
-                else if (batteryPercentage >= 10) {
-                    document.getElementsByClassName("inner_battery")[0].style.background = "#c19d98";
-                    document.getElementsByClassName("inner_battery")[0].style.Content = "☠️";
+                else if (battery.level >= 0.10) {
+                    innerBattery.style.background = "8B0000";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.innerText = "(×_×)";
                 }
             }
 
-            // Update battery status on page load
+            // Initial update
             updateBatteryStatus();
 
-            // Update battery status on battery level change
-            battery.addEventListener("levelchange", updateBatteryStatus);
+            // Update on battery level change
+            battery.addEventListener('levelchange', updateBatteryStatus);
         });
-    } else {
-        document.getElementsByClassName("percentage_battery")[0];
     }
-
 });
 document.addEventListener('DOMContentLoaded', () => {
     const toggle = document.getElementById('checkbox');
@@ -560,4 +568,3 @@ function back4() {
     // document.getElementsByClassName('weather')[0].style.animation= 'weather_ani 0.5s';
     document.getElementsByClassName('weather')[0].style.zIndex = -3;
 }
-

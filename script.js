@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const batteryPercentage = Math.round(battery.level * 100) + "%";
                 document.getElementsByClassName("percentage_battery")[0].innerText = "Charge " + batteryPercentage;
                 const innerBattery = document.getElementsByClassName("inner_battery")[0];
-                
+
                 if (battery.level >= 0.90) {
                     innerBattery.style.background = "#006400";
                     innerBattery.style.fontSize = "clamp(0.4rem, 1.4vh, 0.9rem)";
@@ -474,7 +474,7 @@ function initMap() {
             timeout: 5000,
             maximumAge: 0
         });
-    } 
+    }
     else {
         alert("Geolocation is not supported by this browser.");
     }
@@ -525,11 +525,11 @@ const url =
     'https://api.openweathermap.org/data/2.5/weather';
 const apiKey =
     'f00c38e0279b7bc85480c3fe775d518c';
- 
+
 $(document).ready(function () {
     weatherFn('delhi');
 });
- 
+
 async function weatherFn(cName) {
     const temp =
         `${url}?q=${cName}&appid=${apiKey}&units=metric`;
@@ -544,9 +544,9 @@ async function weatherFn(cName) {
     } catch (error) {
         console.error('Error fetching weather data:', error);
     }
-    
+
 }
- 
+
 function weatherShowFn(data) {
     $('#city-name').text(data.name);
     $('#temperature').
@@ -555,7 +555,7 @@ function weatherShowFn(data) {
         text(data.weather[0].description);
     $('#wind-speed').
         html(`Wind Speed: ${data.wind.speed} m/s`);
-    
+
     $('#weather-info').fadeIn();
 }
 
@@ -567,4 +567,216 @@ function weather() {
 function back4() {
     // document.getElementsByClassName('weather')[0].style.animation= 'weather_ani 0.5s';
     document.getElementsByClassName('weather')[0].style.zIndex = -3;
+}
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const boardElement = document.getElementById('board');
+    const cells = document.querySelectorAll('.cell');
+    const multiPlayerBtn = document.getElementById('multi-player');
+    const singlePlayerBtn = document.getElementById('single-player');
+    const difficultyElement = document.getElementById('difficulty');
+    const easyBtn = document.getElementById('easy');
+    const mediumBtn = document.getElementById('medium');
+    const hardBtn = document.getElementById('hard');
+    const newGameBtn = document.querySelector("#new-btn");
+    const restart = document.querySelector('.restart-btn');
+    const ticBack = document.getElementById('ticBack');
+    const Return = document.getElementById('back2');
+    const msgContainer = document.querySelector(".msg-container");
+
+    let board = ['', '', '', '', '', '', '', '', ''];
+    let currentPlayer = 'X';
+    let gameActive = true;
+    let isMultiplayer = false;
+    let difficulty = 'easy';
+
+    singlePlayerBtn.classList.remove('hide');
+    multiPlayerBtn.classList.remove('hide');
+    ticBack.classList.remove('hide');
+    Return.classList.add('hide');
+    msgContainer.classList.add('hide');
+
+    Return.addEventListener('click', () => {
+        multiPlayerBtn.classList.remove('hide');
+        singlePlayerBtn.classList.remove('hide');
+        ticBack.classList.remove('hide');
+        Return.classList.add('hide');
+        boardElement.classList.add('hide');
+        restart.classList.add('hide');
+        difficultyElement.classList.add('hide');
+        msgContainer.classList.add('hide');
+    });
+
+    multiPlayerBtn.addEventListener('click', () => {
+        isMultiplayer = true;
+        resetGame();
+        boardElement.classList.remove('hide');
+        restart.classList.remove('hide');
+        multiPlayerBtn.classList.add('hide');
+        singlePlayerBtn.classList.add('hide');
+        ticBack.classList.add('hide');
+        Return.classList.remove('hide');
+        msgContainer.classList.add('hide');
+        
+    });
+
+    singlePlayerBtn.addEventListener('click', () => {
+        isMultiplayer = false;
+        resetGame();
+        difficultyElement.classList.remove('hide');
+        multiPlayerBtn.classList.add('hide');
+        singlePlayerBtn.classList.add('hide');
+        restart.classList.add('hide');
+        ticBack.classList.add('hide');
+        Return.classList.remove('hide');
+    });
+
+    easyBtn.addEventListener('click', () => startGame('easy'));
+    mediumBtn.addEventListener('click', () => startGame('medium'));
+    hardBtn.addEventListener('click', () => startGame('hard'));
+
+    cells.forEach(cell => {
+        cell.addEventListener('click', () => handleCellClick(cell));
+    });
+
+    function startGame(selectedDifficulty) {
+        difficulty = selectedDifficulty;
+        difficultyElement.classList.add('hide');
+        boardElement.classList.remove('hide');
+        restart.classList.remove('hide');
+        ticBack.classList.add('hide');
+        Return.classList.remove('hide');
+    }
+
+    function handleCellClick(cell) {
+        const index = cell.getAttribute('data-index');
+        if (board[index] !== '' || !gameActive) {
+            return;
+        }
+        makeMove(index, currentPlayer);
+        if (checkWinner(currentPlayer)) {
+            msg.innerText = `Winner: ${currentPlayer}`;
+            msgContainer.classList.remove("hide");
+            gameActive = false;
+            return;
+        } else if (board.every(cell => cell !== '')) {
+            msg.innerText = 'It\'s a draw!';
+            msgContainer.classList.remove("hide");
+            gameActive = false;
+            return;
+        }
+
+        if (isMultiplayer) {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        } else if (gameActive) {
+            currentPlayer = 'O';
+            setTimeout(computerMove, 1000);
+        }
+    }
+
+    function makeMove(index, player) {
+        board[index] = player;
+        document.querySelector(`.cell[data-index="${index}"]`).textContent = player;
+    }
+
+    function computerMove() {
+        if (!gameActive) return;
+        let index;
+        if (difficulty === 'easy') {
+            index = getRandomMove();
+        } else if (difficulty === 'medium') {
+            index = getMediumMove();
+        } else {
+            index = getHardMove();
+        }
+        makeMove(index, 'O');
+        if (checkWinner('O')) {
+            msg.innerText = `Winner: O`;
+            msgContainer.classList.remove("hide");
+            gameActive = false;
+        } else if (board.every(cell => cell !== '')) {
+            msg.innerText = 'It\'s a draw!';
+            msgContainer.classList.remove("hide");
+            gameActive = false;
+        } else {
+            currentPlayer = 'X';
+        }
+    }
+
+    function getRandomMove() {
+        const emptyCells = board.map((cell, index) => cell === '' ? index : null).filter(val => val !== null);
+        return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+    }
+
+    function getMediumMove() {
+        const winningMove = findWinningMove('O');
+        if (winningMove !== null) return winningMove;
+        const blockingMove = findWinningMove('X');
+        if (blockingMove !== null) return blockingMove;
+        return getRandomMove();
+    }
+
+    function getHardMove() {
+        return getMediumMove(); // Placeholder for now
+    }
+
+    function findWinningMove(player) {
+        for (let i = 0; i < board.length; i++) {
+            if (board[i] === '') {
+                board[i] = player;
+                const isWinning = checkWinner(player);
+                board[i] = '';
+                if (isWinning) return i;
+            }
+        }
+        return null;
+    }
+
+    function checkWinner(player) {
+        const winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+        return winningCombinations.some(combination => {
+            return combination.every(index => board[index] === player);
+        });
+    }
+
+    function resetGame() {
+        board = ['', '', '', '', '', '', '', '', ''];
+        currentPlayer = 'X';
+        gameActive = true;
+        cells.forEach(cell => cell.textContent = '');
+        msgContainer.classList.add('hide');
+    }
+
+    function newGame() {
+        resetGame();
+        restart.classList.remove('hide');
+    }
+
+    restart.addEventListener("click", newGame);
+});
+
+
+function back5() {
+    document.getElementsByClassName('ticTac')[0].style.zIndex = -2;
+    document.getElementsByClassName('gamesFolder')[0].style.zIndex = 2;
+}
+
+function tic() {
+    document.getElementsByClassName('ticTac')[0].style.zIndex = 3;
+}
+
+function games() {
+    document.getElementsByClassName('gamesFolder')[0].style.zIndex = 3;
+}
+
+function back6() {
+    document.getElementsByClassName('gamesFolder')[0].style.zIndex = -2;
 }

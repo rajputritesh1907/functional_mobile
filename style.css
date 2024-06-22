@@ -657,7 +657,10 @@ body {
 .last_box .facebook:nth-child(2):hover,
 .box .notes:hover,
 .cal .facebook:nth-child(2):hover,
-.social .twitter:hover {
+.social .twitter:hover,
+#main .container:nth-child(3) .box:nth-child(1):hover,
+.gameInner svg:hover
+{
     box-shadow: var(--inner-shadow);
 }
 
@@ -1131,4 +1134,151 @@ body {
         margin-left: 40%;
         z-index: -3;
     }
+}
+
+.container:nth-child(3){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+    gap: 4vh;
+}
+
+#main .container:nth-child(3) .box:nth-child(1){
+    padding: 0;
+    height: 100%;
+    margin-top: 2vh;
+    margin-left: 3vh;
+    width: 12vh;
+    border-radius: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--outer-shadow);
+}
+
+
+.ticTac{
+    position: absolute;
+    height: 73vh;
+    width: 39vh;
+    background: var(--body-color);
+    position: absolute;
+    gap: 0vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: -2;
+}
+
+.ticTac .back h1{
+    font-size: clamp(1rem, 4vh, 2rem);
+}
+
+.ticTac .back {
+    padding-left: 5vh;
+    width: 100%;
+    display: flex;
+    gap: 3vh;
+    justify-content: start;
+}
+
+.board{
+    margin-top: 20%;
+    height: 90%;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh; 
+}
+
+.cell{
+    border-radius: 1vh;
+    border: none;
+    background-color: #d5d5c2;
+    box-shadow:  2px 2px 5px #b5b5a5,
+                -2px -2px 5px #f5f5df;
+    height: 12vh;
+    width: 12vh;
+    font-size: clamp(2rem, 6vh, 4rem);
+    color: var(--black-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.msg-container{
+    font-size: clamp(1rem, 4vh, 2rem);
+}
+.hide {
+    display: none;
+  }
+
+#new-btn{
+    height: 4vh;
+    width: 12vh;
+    border-radius: 1vh;
+    background-color: var(--black-font);
+    color: var(--white-color);
+}
+.ticTac button{
+    height: 4vh;
+    width: 20vh;
+    border-radius: 1vh;
+    background-color: var(--black-font);
+    color: var(--white-color);
+}
+
+.tictacBox{
+    /* background-color: red; */
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#single-player,#multi-player{
+    justify-content: center;
+    align-items: center;
+    gap: .5vh;
+}
+
+.gamesFolder{
+    position: absolute;
+    height: 73vh;
+    width: 39vh;
+    border-radius: 4vh;
+    /*  */
+    backdrop-filter: blur(10px);
+    z-index: -4;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vh;
+}
+
+.gameInner{
+    height: 18vh;
+    width: 18vh;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameInner svg {
+    height: 15vh;
+    width: 15vh;
+    background: var(--body-color);
+    border-radius: 30px;
+    box-shadow: var(--outer-shadow);
 }

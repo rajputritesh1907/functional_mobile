@@ -780,3 +780,50 @@ function games() {
 function back6() {
     document.getElementsByClassName('gamesFolder')[0].style.zIndex = -2;
 }
+
+
+    let stream1 = null;
+    let track1 = null;
+    let isFlashlightOn = false;
+
+    async function initCamera() {
+      try {
+        stream1 = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } });
+        track1 = stream1.getVideoTracks()[0];
+      } catch (err) {
+        console.error("Error accessing camera: ", err);
+      }
+    }
+
+    async function toggleFlashlight() {
+      if (!track1) {
+        await initCamera();
+      }
+      if (!track1) {
+        alert("Camera access required to control the flashlight.");
+        return;
+      }
+
+      try {
+        isFlashlightOn = !isFlashlightOn;
+        await track1.applyConstraints({
+          advanced: [{ torch: isFlashlightOn }]
+        });
+        document.getElementById('flashlightToggle').textContent = isFlashlightOn ? 'Turn Off Flashlight' : 'Turn On Flashlight';
+      } catch (err) {
+        console.error("Error toggling flashlight: ", err);
+        alert("Flashlight control not supported on this device.");
+      }
+    }
+
+    document.getElementById('flashlightToggle').addEventListener('click', toggleFlashlight);
+
+    // Clean up camera stream on page unload
+    window.addEventListener('unload', () => {
+      if (track1) {
+        track1.stop();
+      }
+      if (stream1) {
+        stream1.getTracks().forEach(t => t.stop());
+      }
+    });

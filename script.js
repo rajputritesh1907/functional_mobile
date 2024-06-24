@@ -782,57 +782,52 @@ function back6() {
 }
 
 
-    let stream1 = null;
-    let track1 = null;
-    let isFlashlightOn = false;
+let stream1 = null;
+let track1 = null;
+let isFlashlightOn = false;
 
-    async function initCamera() {
-      try {
-        stream1 = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } });
-        track1 = stream1.getVideoTracks()[0];
-      } catch (err) {
-        console.error("Error accessing camera: ", err);
-      }
-    }
+async function initCamera() {
+  try {
+    stream1 = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } });
+    track1 = stream1.getVideoTracks()[0];
+  } catch (err) {
+    console.error("Error accessing camera: ", err);
+    alert("Camera access not supported on this device.");
+  }
+}
 
-    async function toggleFlashlight() {
-      if (!track1) {
-        await initCamera();
-      }
-      if (!track1) {
-        alert("Camera access required to control the flashlight.");
-        return;
-      }
+async function toggleFlashlight() {
+  if (!track1) {
+    await initCamera();
+  }
+  if (!track1) {
+    alert("Camera access required to control the flashlight.");
+    return;
+  }
 
-      try {
-        // Toggle flashlight state
-        isFlashlightOn = !isFlashlightOn;
-        
-        // Apply constraints to the track
-        await track1.applyConstraints({
-          advanced: [{ torch: isFlashlightOn }]
-        });
-        
-        // Update the bulb's fill color based on flashlight state
-        const bulb = document.querySelector('.bulb');
-        if (bulb) {
-          bulb.style.fill = isFlashlightOn ? 'yellow' : 'none';
-        }
-      } catch (err) {
-        console.error("Error toggling flashlight: ", err);
-        alert("Flashlight control not supported on this device.");
-      }
-      
-    }
-
-    document.getElementById('flashlightToggle').addEventListener('click', toggleFlashlight);
-
-    // Clean up camera stream on page unload
-    window.addEventListener('unload', () => {
-      if (track1) {
-        track1.stop();
-      }
-      if (stream1) {
-        stream1.getTracks().forEach(t => t.stop());
-      }
+  try {
+    isFlashlightOn = !isFlashlightOn;
+    await track1.applyConstraints({
+      advanced: [{ torch: isFlashlightOn }]
     });
+    const bulb = document.querySelector('.bulb');
+    if (bulb) {
+      bulb.style.fill = isFlashlightOn ? 'yellow' : 'none';
+    }
+  } catch (err) {
+    console.error("Error toggling flashlight: ", err);
+    alert("Flashlight control not supported on this device.");
+  }
+}
+
+document.getElementById('flashlightToggle').addEventListener('click', toggleFlashlight);
+
+// Clean up camera stream on page unload
+window.addEventListener('unload', () => {
+  if (track1) {
+    track1.stop();
+  }
+  if (stream1) {
+    stream1.getTracks().forEach(t => t.stop());
+  }
+});

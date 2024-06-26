@@ -106,47 +106,47 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (battery.level >= 0.90) {
                     innerBattery.style.background = "#006400";
-                    innerBattery.style.fontSize = "clamp(0.4rem, 1.4vh, 0.9rem)";
+                    innerBattery.style.fontSize = "clamp(0.4rem, 1vh, 0.9rem)";
                     innerBattery.innerText = "..◜ᴗ◝..";
                 }
-                else if (battery.level >= 0.70) {
+                else if (battery.level >= 0.80) {
                     innerBattery.style.background = "#228B22";
-                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1vh, 1rem)";
                     innerBattery.innerText = "(˶ᵔ ᵕ ᵔ˶)";
                 }
                 else if (battery.level >= 0.70) {
                     innerBattery.style.background = "#2E8B57";
-                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1vh, 1rem)";
                     innerBattery.innerText = "•⩊•";
                 }
                 else if (battery.level >= 0.60) {
                     innerBattery.style.background = "#3CB371";
-                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1vh, 1rem)";
                     innerBattery.innerText = "( •⌄• )";
                 }
                 else if (battery.level >= 0.50) {
                     innerBattery.style.background = "#556B2F";
-                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1vh, 1rem)";
                     innerBattery.innerText = "(´･_･`)";
                 }
                 else if (battery.level >= 0.40) {
                     innerBattery.style.background = "#808000";
-                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1vh, 1rem)";
                     innerBattery.innerText = "(⊙_⊙)";
                 }
                 else if (battery.level >= 0.30) {
                     innerBattery.style.background = "#8B4513";
-                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1vh, 1rem)";
                     innerBattery.innerText = "(>﹏<)";
                 }
                 else if (battery.level >= 0.20) {
                     innerBattery.style.background = "#A0522D";
-                    innerBattery.style.fontSize = "clamp(0.75rem, 1.75vh, 1.5rem)";
+                    innerBattery.style.fontSize = "clamp(0.75rem, 1vh, 1.5rem)";
                     innerBattery.innerText = "ಠಿ‸ಠ";
                 }
                 else if (battery.level >= 0.10) {
                     innerBattery.style.background = "8B0000";
-                    innerBattery.style.fontSize = "clamp(0.5rem, 1.5vh, 1rem)";
+                    innerBattery.style.fontSize = "clamp(0.5rem, 1vh, 1rem)";
                     innerBattery.innerText = "(×_×)";
                 }
             }
@@ -361,14 +361,14 @@ load_track(index_no);
 function playsong() {
     track.play();
     Playing_song = true;
-    play.innerHTML = '<i class="fa fa-pause"></i>';
+    play.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#000000" fill="none"><path d="M4 7C4 5.58579 4 4.87868 4.43934 4.43934C4.87868 4 5.58579 4 7 4C8.41421 4 9.12132 4 9.56066 4.43934C10 4.87868 10 5.58579 10 7V17C10 18.4142 10 19.1213 9.56066 19.5607C9.12132 20 8.41421 20 7 20C5.58579 20 4.87868 20 4.43934 19.5607C4 19.1213 4 18.4142 4 17V7Z" stroke="currentColor" stroke-width="1.5" color="var(--black-font)"/><path d="M14 7C14 5.58579 14 4.87868 14.4393 4.43934C14.8787 4 15.5858 4 17 4C18.4142 4 19.1213 4 19.5607 4.43934C20 4.87868 20 5.58579 20 7V17C20 18.4142 20 19.1213 19.5607 19.5607C19.1213 20 18.4142 20 17 20C15.5858 20 14.8787 20 14.4393 19.5607C14 19.1213 14 18.4142 14 17V7Z" stroke="currentColor" stroke-width="1.5" color="var(--black-font)"/></svg>';
 }
 
 // Pause song
 function pausesong() {
     track.pause();
     Playing_song = false;
-    play.innerHTML = '<i class="fa fa-play"></i>';
+    play.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="25" height="25" color="#000000" fill="none"><path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" color="var(--black-font)"/></svg>';
 }
 
 // Toggle play/pause
@@ -457,7 +457,7 @@ function shuffleNextSong() {
 }
 function toggleShuffle() {
     shuffle = !shuffle;
-    shuffleButton.style.color = shuffle ? "red" : "var(--black-font)";
+    document.getElementById('get').innerHTML = shuffle ? '<svg xmlns="http://www.w3.org/2000/svg" id="get" onclick="toggleShuffle()" viewBox="0 0 24 24" width="23" height="23" color="#000000" fill="none"><path d="M19.5576 4L20.4551 4.97574C20.8561 5.41165 21.0566 5.62961 20.9861 5.81481C20.9155 6 20.632 6 20.0649 6C18.7956 6 17.2771 5.79493 16.1111 6.4733C15.3903 6.89272 14.8883 7.62517 14.0392 9M3 18H4.58082C6.50873 18 7.47269 18 8.2862 17.5267C9.00708 17.1073 9.50904 16.3748 10.3582 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="var(--black-font)"/><path d="M19.5576 20L20.4551 19.0243C20.8561 18.5883 21.0566 18.3704 20.9861 18.1852C20.9155 18 20.632 18 20.0649 18C18.7956 18 17.2771 18.2051 16.1111 17.5267C15.2976 17.0534 14.7629 16.1815 13.6935 14.4376L10.7038 9.5624C9.63441 7.81853 9.0997 6.9466 8.2862 6.4733C7.47269 6 6.50873 6 4.58082 6H3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"stroke-linejoin="round" color="var(--black-font)"/></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" id="get" onclick="toggleShuffle()" viewBox="0 0 24 24" width="23" height="23" color="#000000" fill="none"><path d="M19.5576 4L20.4551 4.97574C20.8561 5.41165 21.0566 5.62961 20.9861 5.81481C20.9155 6 20.632 6 20.0649 6C18.7956 6 17.2771 5.79493 16.1111 6.4733C15.3903 6.89272 14.8883 7.62517 14.0392 9M3 18H4.58082C6.50873 18 7.47269 18 8.2862 17.5267C9.00708 17.1073 9.50904 16.3748 10.3582 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" color="grey"/><path d="M19.5576 20L20.4551 19.0243C20.8561 18.5883 21.0566 18.3704 20.9861 18.1852C20.9155 18 20.632 18 20.0649 18C18.7956 18 17.2771 18.2051 16.1111 17.5267C15.2976 17.0534 14.7629 16.1815 13.6935 14.4376L10.7038 9.5624C9.63441 7.81853 9.0997 6.9466 8.2862 6.4733C7.47269 6 6.50873 6 4.58082 6H3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"stroke-linejoin="round" color="grey"/></svg>';
 }
 function music() {
     document.getElementsByClassName('music_back')[0].style.zIndex = 3;
@@ -621,7 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ticBack.classList.add('hide');
         Return.classList.remove('hide');
         msgContainer.classList.add('hide');
-        
+
     });
 
     singlePlayerBtn.addEventListener('click', () => {
@@ -782,48 +782,48 @@ function back6() {
 }
 
 
-    let stream1 = null;
-    let track1 = null;
-    let isFlashlightOn = false;
+let stream1 = null;
+let track1 = null;
+let isFlashlightOn = false;
 
-    async function initCamera() {
-      try {
+async function initCamera() {
+    try {
         stream1 = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } });
         track1 = stream1.getVideoTracks()[0];
-      } catch (err) {
+    } catch (err) {
         console.error("Error accessing camera: ", err);
-      }
     }
+}
 
-    async function toggleFlashlight() {
-      if (!track1) {
+async function toggleFlashlight() {
+    if (!track1) {
         await initCamera();
-      }
-      if (!track1) {
+    }
+    if (!track1) {
         alert("Camera access required to control the flashlight.");
         return;
-      }
-
-      try {
-        isFlashlightOn = !isFlashlightOn;
-        await track1.applyConstraints({
-          advanced: [{ torch: isFlashlightOn }]
-        });
-        document.getElementById('flashlightToggle').innerHTML = isFlashlightOn ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" color="#000000" fill="yellow"><path d="M5.14286 14C4.41735 12.8082 4 11.4118 4 9.91886C4 5.54539 7.58172 2 12 2C16.4183 2 20 5.54539 20 9.91886C20 11.4118 19.5827 12.8082 18.8571 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 10C13.3875 10.6432 12.7111 11 12 11C11.2889 11 10.6125 10.6432 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><path d="M7.38287 17.0982C7.291 16.8216 7.24507 16.6833 7.25042 16.5713C7.26174 16.3343 7.41114 16.1262 7.63157 16.0405C7.73579 16 7.88105 16 8.17157 16H15.8284C16.119 16 16.2642 16 16.3684 16.0405C16.5889 16.1262 16.7383 16.3343 16.7496 16.5713C16.7549 16.6833 16.709 16.8216 16.6171 17.0982C16.4473 17.6094 16.3624 17.8651 16.2315 18.072C15.9572 18.5056 15.5272 18.8167 15.0306 18.9408C14.7935 19 14.525 19 13.9881 19H10.0119C9.47495 19 9.2065 19 8.96944 18.9408C8.47283 18.8167 8.04281 18.5056 7.7685 18.072C7.63755 17.8651 7.55266 17.6094 7.38287 17.0982Z" stroke="currentColor" stroke-width="1.5" /><path d="M15 19L14.8707 19.6466C14.7293 20.3537 14.6586 20.7072 14.5001 20.9866C14.2552 21.4185 13.8582 21.7439 13.3866 21.8994C13.0816 22 12.7211 22 12 22C11.2789 22 10.9184 22 10.6134 21.8994C10.1418 21.7439 9.74484 21.4185 9.49987 20.9866C9.34144 20.7072 9.27073 20.3537 9.12932 19.6466L9 19" stroke="currentColor" stroke-width="1.5" /><path d="M12 15.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" color="#000000" fill="none"><path d="M5.14286 14C4.41735 12.8082 4 11.4118 4 9.91886C4 5.54539 7.58172 2 12 2C16.4183 2 20 5.54539 20 9.91886C20 11.4118 19.5827 12.8082 18.8571 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 10C13.3875 10.6432 12.7111 11 12 11C11.2889 11 10.6125 10.6432 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><path d="M7.38287 17.0982C7.291 16.8216 7.24507 16.6833 7.25042 16.5713C7.26174 16.3343 7.41114 16.1262 7.63157 16.0405C7.73579 16 7.88105 16 8.17157 16H15.8284C16.119 16 16.2642 16 16.3684 16.0405C16.5889 16.1262 16.7383 16.3343 16.7496 16.5713C16.7549 16.6833 16.709 16.8216 16.6171 17.0982C16.4473 17.6094 16.3624 17.8651 16.2315 18.072C15.9572 18.5056 15.5272 18.8167 15.0306 18.9408C14.7935 19 14.525 19 13.9881 19H10.0119C9.47495 19 9.2065 19 8.96944 18.9408C8.47283 18.8167 8.04281 18.5056 7.7685 18.072C7.63755 17.8651 7.55266 17.6094 7.38287 17.0982Z" stroke="currentColor" stroke-width="1.5" /><path d="M15 19L14.8707 19.6466C14.7293 20.3537 14.6586 20.7072 14.5001 20.9866C14.2552 21.4185 13.8582 21.7439 13.3866 21.8994C13.0816 22 12.7211 22 12 22C11.2789 22 10.9184 22 10.6134 21.8994C10.1418 21.7439 9.74484 21.4185 9.49987 20.9866C9.34144 20.7072 9.27073 20.3537 9.12932 19.6466L9 19" stroke="currentColor" stroke-width="1.5" /><path d="M12 15.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />';
-      } catch (err) {
-        console.error("Error toggling flashlight: ", err);
-        alert("Flashlight control not supported on this device.");
-      }
     }
 
-    document.getElementById('flashlightToggle').addEventListener('click', toggleFlashlight);
+    try {
+        isFlashlightOn = !isFlashlightOn;
+        await track1.applyConstraints({
+            advanced: [{ torch: isFlashlightOn }]
+        });
+        document.getElementById('flashlightToggle').innerHTML = isFlashlightOn ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" color="#000000" fill="yellow"><path d="M5.14286 14C4.41735 12.8082 4 11.4118 4 9.91886C4 5.54539 7.58172 2 12 2C16.4183 2 20 5.54539 20 9.91886C20 11.4118 19.5827 12.8082 18.8571 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 10C13.3875 10.6432 12.7111 11 12 11C11.2889 11 10.6125 10.6432 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><path d="M7.38287 17.0982C7.291 16.8216 7.24507 16.6833 7.25042 16.5713C7.26174 16.3343 7.41114 16.1262 7.63157 16.0405C7.73579 16 7.88105 16 8.17157 16H15.8284C16.119 16 16.2642 16 16.3684 16.0405C16.5889 16.1262 16.7383 16.3343 16.7496 16.5713C16.7549 16.6833 16.709 16.8216 16.6171 17.0982C16.4473 17.6094 16.3624 17.8651 16.2315 18.072C15.9572 18.5056 15.5272 18.8167 15.0306 18.9408C14.7935 19 14.525 19 13.9881 19H10.0119C9.47495 19 9.2065 19 8.96944 18.9408C8.47283 18.8167 8.04281 18.5056 7.7685 18.072C7.63755 17.8651 7.55266 17.6094 7.38287 17.0982Z" stroke="currentColor" stroke-width="1.5" /><path d="M15 19L14.8707 19.6466C14.7293 20.3537 14.6586 20.7072 14.5001 20.9866C14.2552 21.4185 13.8582 21.7439 13.3866 21.8994C13.0816 22 12.7211 22 12 22C11.2789 22 10.9184 22 10.6134 21.8994C10.1418 21.7439 9.74484 21.4185 9.49987 20.9866C9.34144 20.7072 9.27073 20.3537 9.12932 19.6466L9 19" stroke="currentColor" stroke-width="1.5" /><path d="M12 15.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>' : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" color="#000000" fill="none"><path d="M5.14286 14C4.41735 12.8082 4 11.4118 4 9.91886C4 5.54539 7.58172 2 12 2C16.4183 2 20 5.54539 20 9.91886C20 11.4118 19.5827 12.8082 18.8571 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 10C13.3875 10.6432 12.7111 11 12 11C11.2889 11 10.6125 10.6432 10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><path d="M7.38287 17.0982C7.291 16.8216 7.24507 16.6833 7.25042 16.5713C7.26174 16.3343 7.41114 16.1262 7.63157 16.0405C7.73579 16 7.88105 16 8.17157 16H15.8284C16.119 16 16.2642 16 16.3684 16.0405C16.5889 16.1262 16.7383 16.3343 16.7496 16.5713C16.7549 16.6833 16.709 16.8216 16.6171 17.0982C16.4473 17.6094 16.3624 17.8651 16.2315 18.072C15.9572 18.5056 15.5272 18.8167 15.0306 18.9408C14.7935 19 14.525 19 13.9881 19H10.0119C9.47495 19 9.2065 19 8.96944 18.9408C8.47283 18.8167 8.04281 18.5056 7.7685 18.072C7.63755 17.8651 7.55266 17.6094 7.38287 17.0982Z" stroke="currentColor" stroke-width="1.5" /><path d="M15 19L14.8707 19.6466C14.7293 20.3537 14.6586 20.7072 14.5001 20.9866C14.2552 21.4185 13.8582 21.7439 13.3866 21.8994C13.0816 22 12.7211 22 12 22C11.2789 22 10.9184 22 10.6134 21.8994C10.1418 21.7439 9.74484 21.4185 9.49987 20.9866C9.34144 20.7072 9.27073 20.3537 9.12932 19.6466L9 19" stroke="currentColor" stroke-width="1.5" /><path d="M12 15.5V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />';
+    } catch (err) {
+        console.error("Error toggling flashlight: ", err);
+        alert("Flashlight control not supported on this device.");
+    }
+}
 
-    // Clean up camera stream on page unload
-    window.addEventListener('unload', () => {
-      if (track1) {
+document.getElementById('flashlightToggle').addEventListener('click', toggleFlashlight);
+
+// Clean up camera stream on page unload
+window.addEventListener('unload', () => {
+    if (track1) {
         track1.stop();
-      }
-      if (stream1) {
+    }
+    if (stream1) {
         stream1.getTracks().forEach(t => t.stop());
-      }
-    });
+    }
+});

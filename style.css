@@ -53,7 +53,19 @@ body {
     /* Firefox */
     -ms-user-select: none;
     /* Internet Explorer/Edge */
+
+    font-family: "Playwrite AU VIC", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
 }
+input {
+    font-family: "Playwrite AU VIC", cursive;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
 #main {
     height: 70vh;
     width: 36vh;
@@ -124,7 +136,6 @@ body {
     height: 7vh;
     border-radius: 2vh;
     font-size: clamp(2rem, 6vh, 4rem);
-    font-family: system-ui, -boxle-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 #date {
@@ -183,7 +194,7 @@ body {
     display: flex;
     width: 100%;
     flex-direction: row;
-    gap: 1vh;
+    gap: .75vh;
     height: 50%;
     padding-left: 10%;
     font-size: clamp(.5rem, 1.5vh, 1rem);
@@ -204,7 +215,6 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    /* row-gap: 3vh; */
     justify-content: space-around;
     align-items: flex-end;
 }
@@ -233,8 +243,8 @@ body {
 
 .circle2 {
     position: absolute;
-    margin-left:-8.75vh;
-    margin-top: -1.25vh;
+    margin-left:-8.65vh;
+    margin-top: -.39vh;
     top: 13vh;
     display: flex;
     flex-direction: column;
@@ -260,16 +270,25 @@ body {
 
 
 
-.twitter {
+/* .twitter {
     color: skyblue;
     height: 3vh;
     padding-bottom: 0;
-    padding: 2vh;
+    padding: 1.4vh;
     background: var(--body-color);
     box-shadow: var(--outer-shadow);
     border-radius: 1.5vh;
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.social .calendar {
+    height: 120%;
+    width: 40%;
 }
+
 
 .twitter:nth-child(2) {
     color: rgb(68, 128, 151);
@@ -547,7 +566,6 @@ body {
     justify-content: center;
     align-items: center;
     font-size: clamp(1.4rem, 5vh, 3.5rem);
-    font-family: system-ui, -boxle-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .add_tea {
@@ -622,9 +640,7 @@ body {
     color: #96A5C4;
 }
 
-.facebook:nth-child(2) {
-    color: pink;
-}
+
 
 .line {
     font-size: clamp(.5rem, 1.5vw, 1rem);
@@ -659,7 +675,8 @@ body {
 .cal .facebook:nth-child(2):hover,
 .social .twitter:hover,
 #main .container:nth-child(3) .box:nth-child(1):hover,
-.gameInner svg:hover
+.gameInner svg:hover,
+.cal .facebook:nth-child(1):hover
 {
     box-shadow: var(--inner-shadow);
 }
@@ -879,7 +896,6 @@ body {
 .play_music {
     text-align: center;
     font-size: clamp(1rem, 4vh, 1.5rem);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .music_circle {
@@ -904,7 +920,6 @@ body {
 .music_name {
     text-align: center;
     font-size: clamp(.5rem, 3vh, 1.25rem);
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .music_player {
@@ -937,7 +952,7 @@ body {
     font-size: clamp(.5rem, 3vh, 1.25rem);
 }
 
-.suffle i {
+.suffle i,.suffle svg {
     padding: 1vh;
     background-color: var(--body-color);
     box-shadow: var(--outer-shadow);
@@ -985,7 +1000,9 @@ body {
     background-color: var(--body-color);
     border-radius: 50%;
     box-shadow: var(--outer-shadow);
-    font-size: clamp(.5rem, 3vh, 1.25rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .music_logo .back i {
@@ -1043,7 +1060,6 @@ body {
     width: 100%;
     height: 80%;
     background: linear-gradient(#449ff8, #031eb5);
-    font-family: monospace;
     font-size: clamp(1rem, 3.5vh, 1.5rem);
     gap: 2vh;
 }
